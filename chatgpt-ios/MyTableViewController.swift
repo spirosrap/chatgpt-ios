@@ -32,7 +32,7 @@ class MyTableViewController: UITableViewController {
     
     // MARK: - Table View Data Source
     
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {        
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         let baseHeight: CGFloat = 44 // The base height for the cell
         let extraLineHeight: CGFloat = 20 // The height of each extra line
