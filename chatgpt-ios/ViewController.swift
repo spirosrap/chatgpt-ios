@@ -15,6 +15,7 @@ class ViewController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var input: UITextView!
     @IBOutlet weak var output: UITextView!
     
+    @IBOutlet weak var submitButton: UIButton!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     var currentAnswer = ""
     var currentQuestion = ""
@@ -29,6 +30,12 @@ class ViewController: UIViewController, UITextViewDelegate {
         // Do any additional setup after loading the view.
         input.delegate = self
         output.delegate = self
+        
+        submitButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
+        submitButton.setTitleColor(.red, for: .normal)
+        submitButton.layer.borderWidth = 5
+        submitButton.layer.borderColor = UIColor.red.cgColor
+
         
         if let apiKey = getAPIKey(from: "API_Key") {
             print("API Key: \(apiKey)")

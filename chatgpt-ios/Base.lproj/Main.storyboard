@@ -170,6 +170,7 @@
                         <outlet property="activityIndicator" destination="4Fb-68-Hbn" id="AtH-Xv-GSP"/>
                         <outlet property="input" destination="j9A-Ry-aqw" id="GML-E2-8XS"/>
                         <outlet property="output" destination="ugE-gr-mUC" id="GoQ-To-5LM"/>
+                        <outlet property="submitButton" destination="yI4-DA-vz4" id="Eqo-Ib-q8h"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
