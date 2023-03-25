@@ -3,7 +3,7 @@
 
 ### Prerequisites
 
-Add the text file API_Key.txt in the root folder with your API Key.
+Add the text file API_Key.txt in the root folder with your openAI API Key.
 
 <div style="display:flex">
     <img src="screenshot.png" style="width:45%">
