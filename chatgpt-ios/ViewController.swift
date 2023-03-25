@@ -22,6 +22,8 @@ class ViewController: UIViewController, UITextViewDelegate {
     var openAI:OpenAISwift!
     var api:ChatGPTAPI!
     
+    var isDataSaved = false
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -88,7 +90,7 @@ class ViewController: UIViewController, UITextViewDelegate {
                 var s = ""
                 activityIndicator.stopAnimating()
                 input.resignFirstResponder()
-
+                isDataSaved = false
                 for try await line in stream {
                     s += line
                     output.text = s
@@ -126,6 +128,11 @@ class ViewController: UIViewController, UITextViewDelegate {
     
     @IBAction func saveAnswer(_ sender: Any) {
         
+        if isDataSaved {
+            showAlert(title: "!!", message: "The answer has already been saved")
+            return
+        }
+
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
 
@@ -137,7 +144,10 @@ class ViewController: UIViewController, UITextViewDelegate {
         newAnswer.question = currentQuestion
 
         do {
+            
             try context.save()
+            showAlert(title: "Success", message: "Answer saved")
+            isDataSaved = true
         } catch let error as NSError {
             print("Could not save. \(error), \(error.userInfo)")
         }
