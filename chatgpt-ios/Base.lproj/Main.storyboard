@@ -110,27 +110,39 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mQZ-F7-GaC">
-                                        <rect key="frame" x="0.0" y="200" width="393" height="60"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" restorationIdentifier="stackbuttons" translatesAutoresizingMaskIntoConstraints="NO" id="mQZ-F7-GaC" customClass="BorderedStackView" customModule="chatgpt_ios" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="200" width="393" height="34.333333333333343"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yI4-DA-vz4">
-                                                <rect key="frame" x="0.0" y="0.0" width="196.66666666666666" height="60"/>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" title="SUBMIT"/>
-                                                <connections>
-                                                    <action selector="generate:" destination="BYZ-38-t0r" eventType="touchUpInside" id="j2O-bB-2t3"/>
-                                                </connections>
-                                            </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n40-RK-iCo">
-                                                <rect key="frame" x="196.66666666666663" y="0.0" width="196.33333333333337" height="60"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="131" height="34.333333333333336"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Save"/>
                                                 <connections>
                                                     <action selector="saveAnswer:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FDF-DU-Ex8"/>
                                                 </connections>
                                             </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yI4-DA-vz4">
+                                                <rect key="frame" x="131" y="0.0" width="131" height="34.333333333333336"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Submit"/>
+                                                <connections>
+                                                    <action selector="generate:" destination="BYZ-38-t0r" eventType="touchUpInside" id="j2O-bB-2t3"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FF0-X6-TLJ">
+                                                <rect key="frame" x="262" y="0.0" width="131" height="34.333333333333336"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Reset/Stop"/>
+                                                <connections>
+                                                    <action selector="reset:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rBB-LI-4fh"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                     </stackView>
+                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="4Fb-68-Hbn">
+                                        <rect key="frame" x="0.0" y="234.33333333333331" width="393" height="25.666666666666686"/>
+                                        <color key="color" systemColor="systemPinkColor"/>
+                                    </activityIndicatorView>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="ChatGPT:" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ugE-gr-mUC">
                                         <rect key="frame" x="0.0" y="260" width="393" height="450"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -155,6 +167,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Ask" image="wrench.and.screwdriver" catalog="system" id="hLf-Un-u0T"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="4Fb-68-Hbn" id="AtH-Xv-GSP"/>
                         <outlet property="input" destination="j9A-Ry-aqw" id="GML-E2-8XS"/>
                         <outlet property="output" destination="ugE-gr-mUC" id="GoQ-To-5LM"/>
                     </connections>
@@ -172,6 +185,9 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

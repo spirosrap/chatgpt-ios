@@ -15,6 +15,7 @@ class ViewController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var input: UITextView!
     @IBOutlet weak var output: UITextView!
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     var currentAnswer = ""
     var currentQuestion = ""
     
@@ -82,9 +83,10 @@ class ViewController: UIViewController, UITextViewDelegate {
         
         Task {
             do {
-                
+                activityIndicator.startAnimating()
                 let stream = try await api.sendMessageStream(text: input.text)
                 var s = ""
+                activityIndicator.stopAnimating()
                 input.resignFirstResponder()
 
                 for try await line in stream {
@@ -93,14 +95,33 @@ class ViewController: UIViewController, UITextViewDelegate {
                 }
                 currentAnswer = s
                 currentQuestion = input.text
-                input.text = ""
-                
+//                input.text = ""
             } catch {
                 print(error.localizedDescription)
+                activityIndicator.stopAnimating()
+                showAlert(title: "ERROR", message: error.localizedDescription)
             }
         }
 
         
+    }
+    
+    func showAlert(title:String, message:String) {
+      let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+
+      // Add the action to the alert controller
+      let action = UIAlertAction(title: "OK", style: .default) { (action) in
+        // Handle the action here
+      }
+      alertController.addAction(action)
+
+      // Present the alert controller
+      present(alertController, animated: true, completion: nil)
+    }
+
+    @IBAction func reset(_ sender: Any) {
+        input.text = ""
+        output.text = ""
     }
     
     @IBAction func saveAnswer(_ sender: Any) {
