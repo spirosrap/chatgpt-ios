@@ -10,6 +10,7 @@
 		9F303E2529BA7AF500100A09 /* MyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F303E2429BA7AF500100A09 /* MyTableViewController.swift */; };
 		9F5B9AD429CEF29A0077FB02 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5B9AD329CEF29A0077FB02 /* DetailView.swift */; };
 		9F5B9AD629CEFB220077FB02 /* API_Key.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9F5B9AD529CEFB220077FB02 /* API_Key.txt */; };
+		9F5B9AD829CEFE410077FB02 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 9F5B9AD729CEFE410077FB02 /* .gitignore */; };
 		9FAFF74529B4E0D600F77F1C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FAFF74429B4E0D600F77F1C /* AppDelegate.swift */; };
 		9FAFF74729B4E0D600F77F1C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FAFF74629B4E0D600F77F1C /* SceneDelegate.swift */; };
 		9FAFF74929B4E0D600F77F1C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FAFF74829B4E0D600F77F1C /* ViewController.swift */; };
@@ -45,6 +46,7 @@
 		9F303E2429BA7AF500100A09 /* MyTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTableViewController.swift; sourceTree = "<group>"; };
 		9F5B9AD329CEF29A0077FB02 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		9F5B9AD529CEFB220077FB02 /* API_Key.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = API_Key.txt; sourceTree = "<group>"; };
+		9F5B9AD729CEFE410077FB02 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		9FAFF74129B4E0D600F77F1C /* chatgpt-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "chatgpt-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FAFF74429B4E0D600F77F1C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9FAFF74629B4E0D600F77F1C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 		9FAFF73829B4E0D600F77F1C = {
 			isa = PBXGroup;
 			children = (
+				9F5B9AD729CEFE410077FB02 /* .gitignore */,
 				9FAFF74329B4E0D600F77F1C /* chatgpt-ios */,
 				9FAFF75D29B4E0D700F77F1C /* chatgpt-iosTests */,
 				9FAFF76729B4E0D700F77F1C /* chatgpt-iosUITests */,
@@ -255,6 +258,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9F5B9AD829CEFE410077FB02 /* .gitignore in Resources */,
 				9FAFF75429B4E0D700F77F1C /* LaunchScreen.storyboard in Resources */,
 				9FAFF75129B4E0D700F77F1C /* Assets.xcassets in Resources */,
 				9FAFF74C29B4E0D600F77F1C /* Main.storyboard in Resources */,
