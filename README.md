@@ -1,5 +1,5 @@
 # chatgpt-ios
-## A client for ChatGPT/GPT4.The app is being developed using ChatGPT/GPT-4.
+## A client for ChatGPT/GPT4. The app is being developed using ChatGPT/GPT-4.
 
 ### Prerequisites
 
