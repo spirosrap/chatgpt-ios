@@ -90,7 +90,6 @@ class AskViewController: UIViewController, UITextViewDelegate {
                 }
                 currentAnswer = s
                 currentQuestion = input.text
-//                input.text = ""
             } catch {
                 print(error.localizedDescription)
                 activityIndicator.stopAnimating()
@@ -102,8 +101,9 @@ class AskViewController: UIViewController, UITextViewDelegate {
     }
     
     @IBAction func reset(_ sender: Any) {
-        input.text = ""
-        output.text = ""
+        input.text = "INPUT:"
+        output.text = "ANSWER:"
+        api.deleteHistoryList()
     }
     
     @IBAction func saveAnswer(_ sender: Any) {

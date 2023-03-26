@@ -17,11 +17,4 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
         textView.text = text
     }
-    
-//    override func viewWillAppear(_ animated: Bool) {
-//        textView.text = text
-//    }
-    
-    
-    
 }
