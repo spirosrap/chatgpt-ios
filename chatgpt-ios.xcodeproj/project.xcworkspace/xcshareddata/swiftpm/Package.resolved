@@ -15,7 +15,7 @@
       "location" : "https://github.com/alfianlosari/ChatGPTSwift.git",
       "state" : {
         "branch" : "main",
-        "revision" : "8252fac4e6f99a8c3e47e84c2e9ff09b4ce42c33"
+        "revision" : "c86cd2bd5fe907db9a1474b7973fa502c86f27fb"
       }
     },
     {
@@ -24,7 +24,7 @@
       "location" : "https://github.com/adamrushy/OpenAISwift.git",
       "state" : {
         "branch" : "main",
-        "revision" : "cd4a532766b3bca303db070000559dd5ad67a639"
+        "revision" : "d0d791878bb0bc10795d5b19c078e8df0d60aeb5"
       }
     },
     {
@@ -59,8 +59,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/apple/swift-nio.git",
       "state" : {
-        "revision" : "45167b8006448c79dda4b7bd604e07a034c15c49",
-        "version" : "2.48.0"
+        "revision" : "9b2848d76f5caad08b97e71a04345aa5bdb23a06",
+        "version" : "2.49.0"
       }
     },
     {
@@ -68,8 +68,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/apple/swift-nio-extras.git",
       "state" : {
-        "revision" : "d75ed708d00353acf173ca23018b6bd46f949464",
-        "version" : "1.17.0"
+        "revision" : "cc1e5275079380c859417dbea8588531f1a90ec3",
+        "version" : "1.18.0"
       }
     },
     {

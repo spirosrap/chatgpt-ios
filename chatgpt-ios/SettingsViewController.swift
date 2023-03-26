@@ -11,6 +11,7 @@ import CoreData
 
 class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate{
     
+    @IBOutlet weak var pickerViewContainer: UIPickerView!
     
     @IBOutlet weak var selectModel: UIPickerView!
     var data = [String]()
@@ -22,6 +23,11 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
         selectModel.delegate = self
         selectModel.dataSource = self
         data = ["gpt-4", "gpt-3.5-turbo","gpt-4-0314","gpt-3.5-turbo-0301"]
+        
+//        pickerViewContainer.layer.borderColor = UIColor.black.cgColor
+//        pickerViewContainer.layer.borderWidth = 2.0
+//        pickerViewContainer.layer.cornerRadius = 10.0
+
     }
        
     override func viewWillAppear(_ animated: Bool) {

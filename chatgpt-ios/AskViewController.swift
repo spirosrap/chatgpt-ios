@@ -73,7 +73,7 @@ class AskViewController: UIViewController, UITextViewDelegate {
             
         if let apiKey = getAPIKey(from: "API_Key") {
             openAI = OpenAISwift(authToken: apiKey)
-            api = ChatGPTAPI(apiKey: apiKey, model: self.modelName)
+            api = ChatGPTAPI(apiKey: apiKey)
             
         }
             
@@ -113,7 +113,7 @@ class AskViewController: UIViewController, UITextViewDelegate {
         Task {
             do {
                 activityIndicator.startAnimating()
-                let stream = try await api.sendMessageStream(text: input.text)
+                let stream = try await api.sendMessageStream(text: input.text, model: self.modelName)
                 var s = ""
                 activityIndicator.stopAnimating()
                 input.resignFirstResponder()
