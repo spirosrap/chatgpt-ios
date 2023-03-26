@@ -1,5 +1,5 @@
 //
-//  DetailView.swift
+//  DetailViewController.swift
 //  chatgpt-ios
 //
 //  Created by Spiros Raptis on 3/25/23.

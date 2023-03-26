@@ -9,13 +9,13 @@
 /* Begin PBXBuildFile section */
 		9F16791129D016C500E91325 /* UIViewController+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F16791029D016C500E91325 /* UIViewController+Utilities.swift */; };
 		9F303E2529BA7AF500100A09 /* MyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F303E2429BA7AF500100A09 /* MyTableViewController.swift */; };
-		9F5B9AD429CEF29A0077FB02 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5B9AD329CEF29A0077FB02 /* DetailView.swift */; };
+		9F5B9AD429CEF29A0077FB02 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5B9AD329CEF29A0077FB02 /* DetailViewController.swift */; };
 		9F5B9AD829CEFE410077FB02 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 9F5B9AD729CEFE410077FB02 /* .gitignore */; };
 		9F5B9ADA29CF037D0077FB02 /* API_Key.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9F5B9AD929CF037D0077FB02 /* API_Key.txt */; };
 		9F744B5729CF149C00C97193 /* BorderedStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F744B5629CF149C00C97193 /* BorderedStackView.swift */; };
 		9FAFF74529B4E0D600F77F1C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FAFF74429B4E0D600F77F1C /* AppDelegate.swift */; };
 		9FAFF74729B4E0D600F77F1C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FAFF74629B4E0D600F77F1C /* SceneDelegate.swift */; };
-		9FAFF74929B4E0D600F77F1C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FAFF74829B4E0D600F77F1C /* ViewController.swift */; };
+		9FAFF74929B4E0D600F77F1C /* AskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FAFF74829B4E0D600F77F1C /* AskViewController.swift */; };
 		9FAFF74C29B4E0D600F77F1C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9FAFF74A29B4E0D600F77F1C /* Main.storyboard */; };
 		9FAFF74F29B4E0D600F77F1C /* chatgpt_ios.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9FAFF74D29B4E0D600F77F1C /* chatgpt_ios.xcdatamodeld */; };
 		9FAFF75129B4E0D700F77F1C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9FAFF75029B4E0D700F77F1C /* Assets.xcassets */; };
@@ -47,14 +47,14 @@
 /* Begin PBXFileReference section */
 		9F16791029D016C500E91325 /* UIViewController+Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Utilities.swift"; sourceTree = "<group>"; };
 		9F303E2429BA7AF500100A09 /* MyTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTableViewController.swift; sourceTree = "<group>"; };
-		9F5B9AD329CEF29A0077FB02 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		9F5B9AD329CEF29A0077FB02 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		9F5B9AD729CEFE410077FB02 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		9F5B9AD929CF037D0077FB02 /* API_Key.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = API_Key.txt; sourceTree = "<group>"; };
 		9F744B5629CF149C00C97193 /* BorderedStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderedStackView.swift; sourceTree = "<group>"; };
 		9FAFF74129B4E0D600F77F1C /* chatgpt-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "chatgpt-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FAFF74429B4E0D600F77F1C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9FAFF74629B4E0D600F77F1C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		9FAFF74829B4E0D600F77F1C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		9FAFF74829B4E0D600F77F1C /* AskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AskViewController.swift; sourceTree = "<group>"; };
 		9FAFF74B29B4E0D600F77F1C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9FAFF74E29B4E0D600F77F1C /* chatgpt_ios.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = chatgpt_ios.xcdatamodel; sourceTree = "<group>"; };
 		9FAFF75029B4E0D700F77F1C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -121,11 +121,11 @@
 			children = (
 				9FAFF74429B4E0D600F77F1C /* AppDelegate.swift */,
 				9FAFF74629B4E0D600F77F1C /* SceneDelegate.swift */,
-				9FAFF74829B4E0D600F77F1C /* ViewController.swift */,
+				9FAFF74829B4E0D600F77F1C /* AskViewController.swift */,
 				9F744B5629CF149C00C97193 /* BorderedStackView.swift */,
 				9F303E2429BA7AF500100A09 /* MyTableViewController.swift */,
+				9F5B9AD329CEF29A0077FB02 /* DetailViewController.swift */,
 				9FAFF74A29B4E0D600F77F1C /* Main.storyboard */,
-				9F5B9AD329CEF29A0077FB02 /* DetailView.swift */,
 				9FAFF75029B4E0D700F77F1C /* Assets.xcassets */,
 				9FAFF75229B4E0D700F77F1C /* LaunchScreen.storyboard */,
 				9FAFF75529B4E0D700F77F1C /* Info.plist */,
@@ -293,8 +293,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9FAFF74929B4E0D600F77F1C /* ViewController.swift in Sources */,
-				9F5B9AD429CEF29A0077FB02 /* DetailView.swift in Sources */,
+				9FAFF74929B4E0D600F77F1C /* AskViewController.swift in Sources */,
+				9F5B9AD429CEF29A0077FB02 /* DetailViewController.swift in Sources */,
 				9FAFF74F29B4E0D600F77F1C /* chatgpt_ios.xcdatamodeld in Sources */,
 				9FAFF74529B4E0D600F77F1C /* AppDelegate.swift in Sources */,
 				9F303E2529BA7AF500100A09 /* MyTableViewController.swift in Sources */,

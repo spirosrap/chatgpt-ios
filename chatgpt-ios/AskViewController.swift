@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  AskViewController.swift
 //  chatgpt-ios
 //
 //  Created by Spiros Raptis on 3/5/23.
@@ -10,7 +10,7 @@ import OpenAISwift
 import ChatGPTSwift
 import CoreData
 
-class ViewController: UIViewController, UITextViewDelegate {
+class AskViewController: UIViewController, UITextViewDelegate {
     
     @IBOutlet weak var input: UITextView!
     @IBOutlet weak var output: UITextView!
