@@ -35,7 +35,7 @@ class MyTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         let baseHeight: CGFloat = 44 // The base height for the cell
-        let extraLineHeight: CGFloat = 20 // The height of each extra line
+        let extraLineHeight: CGFloat = 30 // The height of each extra line
 
         // Add the extra height for the two empty lines
         return baseHeight + 2 * extraLineHeight
@@ -56,7 +56,7 @@ class MyTableViewController: UITableViewController {
         
         cell.textLabel?.text = myData[indexPath.row] + "\n\n"
         cell.textLabel?.numberOfLines = 0
-        cell.textLabel?.font = UIFont.systemFont(ofSize: 12) // or any other font size you prefer
+        cell.textLabel?.font = UIFont.systemFont(ofSize: 14) // or any other font size you prefer
         
 
         // Customize the textLabel appearance if needed

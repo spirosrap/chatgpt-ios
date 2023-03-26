@@ -40,6 +40,9 @@ class AskViewController: UIViewController, UITextViewDelegate {
         submitButton.layer.borderWidth = 5
         submitButton.layer.borderColor = UIColor.red.cgColor
         
+        input.font = UIFont.systemFont(ofSize: 18)
+        output.font = UIFont.systemFont(ofSize: 18)
+        
     }
         
     override func viewWillAppear(_ animated: Bool) {
