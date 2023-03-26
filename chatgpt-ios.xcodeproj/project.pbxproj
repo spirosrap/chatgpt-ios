@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9F16791129D016C500E91325 /* UIViewController+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F16791029D016C500E91325 /* UIViewController+Utilities.swift */; };
 		9F303E2529BA7AF500100A09 /* MyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F303E2429BA7AF500100A09 /* MyTableViewController.swift */; };
 		9F5B9AD429CEF29A0077FB02 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5B9AD329CEF29A0077FB02 /* DetailView.swift */; };
 		9F5B9AD829CEFE410077FB02 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 9F5B9AD729CEFE410077FB02 /* .gitignore */; };
@@ -44,6 +45,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9F16791029D016C500E91325 /* UIViewController+Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Utilities.swift"; sourceTree = "<group>"; };
 		9F303E2429BA7AF500100A09 /* MyTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTableViewController.swift; sourceTree = "<group>"; };
 		9F5B9AD329CEF29A0077FB02 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		9F5B9AD729CEFE410077FB02 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 				9FAFF75229B4E0D700F77F1C /* LaunchScreen.storyboard */,
 				9FAFF75529B4E0D700F77F1C /* Info.plist */,
 				9FAFF74D29B4E0D600F77F1C /* chatgpt_ios.xcdatamodeld */,
+				9F16791029D016C500E91325 /* UIViewController+Utilities.swift */,
 			);
 			path = "chatgpt-ios";
 			sourceTree = "<group>";
@@ -296,6 +299,7 @@
 				9FAFF74529B4E0D600F77F1C /* AppDelegate.swift in Sources */,
 				9F303E2529BA7AF500100A09 /* MyTableViewController.swift in Sources */,
 				9FAFF74729B4E0D600F77F1C /* SceneDelegate.swift in Sources */,
+				9F16791129D016C500E91325 /* UIViewController+Utilities.swift in Sources */,
 				9F744B5729CF149C00C97193 /* BorderedStackView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
