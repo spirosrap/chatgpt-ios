@@ -4,4 +4,7 @@
         <attribute name="answer" optional="YES" attributeType="String"/>
         <attribute name="question" optional="YES" attributeType="String"/>
     </entity>
+    <entity name="CurrentModel" representedClassName="CurrentModel" syncable="YES" codeGenerationType="class">
+        <attribute name="model" optional="YES" attributeType="String"/>
+    </entity>
 </model>
