@@ -43,7 +43,15 @@ class AskViewController: UIViewController, UITextViewDelegate {
         input.font = UIFont.systemFont(ofSize: 18)
         output.font = UIFont.systemFont(ofSize: 18)
         
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        view.addGestureRecognizer(tapGesture)
+
     }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
+
         
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -86,6 +94,9 @@ class AskViewController: UIViewController, UITextViewDelegate {
     func textViewDidBeginEditing(_ textView: UITextView) {
         textView.text = ""
     }
+    
+
+
     
 
     func getAPIKey(from fileName: String) -> String? {

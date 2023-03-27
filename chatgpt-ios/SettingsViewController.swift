@@ -14,7 +14,11 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
     @IBOutlet weak var pickerViewContainer: UIPickerView!
     
     @IBOutlet weak var selectModel: UIPickerView!
+    
+    @IBOutlet weak var selectPrompt: UIPickerView!
+    
     var data = [String]()
+    var dataPrompt = [String]()
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     var currentModel:CurrentModel!
@@ -23,6 +27,7 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
         selectModel.delegate = self
         selectModel.dataSource = self
         data = ["gpt-4", "gpt-3.5-turbo","gpt-4-0314","gpt-3.5-turbo-0301"]
+        dataPrompt = []
         
 //        pickerViewContainer.layer.borderColor = UIColor.black.cgColor
 //        pickerViewContainer.layer.borderWidth = 2.0
@@ -47,11 +52,25 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
     }
        
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return data.count // number of items in the dropdown list
+        if pickerView == selectModel {
+            
+            return data.count // number of items in the dropdown list
+            
+        } else if pickerView == selectPrompt{
+            return dataPrompt.count // number of items in the dropdown list
+        }
+        
+        return 0
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-           return data[row] // the text for each row in the dropdown list
+        if pickerView == selectModel {
+            return data[row]
+        } else if pickerView == selectPrompt{
+            return dataPrompt[row]
+        }
+        
+        return  ""
     }
        
    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
@@ -63,6 +82,18 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
        } catch let error as NSError {
            print("Could not save. \(error), \(error.userInfo)")
        }
+       
+       if pickerView == selectModel {
+           currentModel.model = self.data[row]
+           do {
+               try context.save()
+           } catch let error as NSError {
+               print("Could not save. \(error), \(error.userInfo)")
+           }
+       } else if pickerView == selectPrompt{
+           //
+       }
+
 
    }
     
