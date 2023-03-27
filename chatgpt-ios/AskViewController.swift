@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import OpenAISwift
 import ChatGPTSwift
 import CoreData
 
@@ -20,7 +19,6 @@ class AskViewController: UIViewController, UITextViewDelegate {
     var currentAnswer = ""
     var currentQuestion = ""
     
-    var openAI:OpenAISwift!
     var api:ChatGPTAPI!
     var isDataSaved = false
     var modelName = "gpt-4"
@@ -80,7 +78,6 @@ class AskViewController: UIViewController, UITextViewDelegate {
 
             
         if let apiKey = getAPIKey(from: "API_Key") {
-            openAI = OpenAISwift(authToken: apiKey)
             api = ChatGPTAPI(apiKey: apiKey)
             
         }

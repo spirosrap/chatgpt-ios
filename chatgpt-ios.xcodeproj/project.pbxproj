@@ -24,7 +24,6 @@
 		9FAFF75F29B4E0D700F77F1C /* chatgpt_iosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FAFF75E29B4E0D700F77F1C /* chatgpt_iosTests.swift */; };
 		9FAFF76929B4E0D700F77F1C /* chatgpt_iosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FAFF76829B4E0D700F77F1C /* chatgpt_iosUITests.swift */; };
 		9FAFF76B29B4E0D700F77F1C /* chatgpt_iosUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FAFF76A29B4E0D700F77F1C /* chatgpt_iosUITestsLaunchTests.swift */; };
-		9FAFF77929B4E1AB00F77F1C /* OpenAISwift in Frameworks */ = {isa = PBXBuildFile; productRef = 9FAFF77829B4E1AB00F77F1C /* OpenAISwift */; };
 		9FAFF77C29B4ED3E00F77F1C /* ChatGPTSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 9FAFF77B29B4ED3E00F77F1C /* ChatGPTSwift */; };
 /* End PBXBuildFile section */
 
@@ -75,7 +74,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				9FAFF77C29B4ED3E00F77F1C /* ChatGPTSwift in Frameworks */,
-				9FAFF77929B4E1AB00F77F1C /* OpenAISwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -172,7 +170,6 @@
 			);
 			name = "chatgpt-ios";
 			packageProductDependencies = (
-				9FAFF77829B4E1AB00F77F1C /* OpenAISwift */,
 				9FAFF77B29B4ED3E00F77F1C /* ChatGPTSwift */,
 			);
 			productName = "chatgpt-ios";
@@ -248,7 +245,6 @@
 			);
 			mainGroup = 9FAFF73829B4E0D600F77F1C;
 			packageReferences = (
-				9FAFF77729B4E1AB00F77F1C /* XCRemoteSwiftPackageReference "OpenAISwift" */,
 				9FAFF77A29B4ED3E00F77F1C /* XCRemoteSwiftPackageReference "ChatGPTSwift" */,
 			);
 			productRefGroup = 9FAFF74229B4E0D600F77F1C /* Products */;
@@ -648,14 +644,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		9FAFF77729B4E1AB00F77F1C /* XCRemoteSwiftPackageReference "OpenAISwift" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/adamrushy/OpenAISwift.git";
-			requirement = {
-				branch = main;
-				kind = branch;
-			};
-		};
 		9FAFF77A29B4ED3E00F77F1C /* XCRemoteSwiftPackageReference "ChatGPTSwift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/alfianlosari/ChatGPTSwift.git";
@@ -667,11 +655,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		9FAFF77829B4E1AB00F77F1C /* OpenAISwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 9FAFF77729B4E1AB00F77F1C /* XCRemoteSwiftPackageReference "OpenAISwift" */;
-			productName = OpenAISwift;
-		};
 		9FAFF77B29B4ED3E00F77F1C /* ChatGPTSwift */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 9FAFF77A29B4ED3E00F77F1C /* XCRemoteSwiftPackageReference "ChatGPTSwift" */;

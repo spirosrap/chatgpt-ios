@@ -8,7 +8,6 @@
 import Foundation
 import UIKit
 import CoreData
-import SwiftCSV
 
 class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate{
     
@@ -66,7 +65,10 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
 //        short.insert("You're a helpful assistant", at: 0)
 //
 //        dataPrompt = prompts
-        
+        self.prompts.insert("Basic helper", at: 0)
+        self.short.insert("You're a helpful assistant", at: 0)
+        self.dataPrompt = self.prompts
+
         loadCSVFromURL()
     }
     
@@ -89,7 +91,8 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
                 print("Invalid response")
                 return
             }
-
+            self.prompts = []
+            self.short = []
             if let csvString = String(data: data, encoding: .utf8) {
                 let rows = csvString.components(separatedBy: "\n")
                 for row in rows {
@@ -105,6 +108,10 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
                 self.short.insert("You're a helpful assistant", at: 0)
 
                 self.dataPrompt = self.prompts
+                DispatchQueue.main.async {
+                    self.selectPrompt.reloadAllComponents()
+                }
+                
 
             }
         }
@@ -201,7 +208,7 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
         do {
             let model = try context.fetch(fetchRequest)
             if model.count == 0{
-                var currentModel = NSEntityDescription.entity(forEntityName: "CurrentModel", in: context)!
+                let currentModel = NSEntityDescription.entity(forEntityName: "CurrentModel", in: context)!
                 let c = CurrentModel(entity: currentModel, insertInto: context)
                 c.model = "gpt-4"
                 self.currentModel = c
