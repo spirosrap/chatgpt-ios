@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 import CoreData
+import SwiftCSV
 
 class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate{
     
@@ -23,17 +24,120 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     var currentModel:CurrentModel!
     
+    var prompts = [String]()
+    var short = [String]()
+
     override func viewDidLoad() {
         selectModel.delegate = self
         selectModel.dataSource = self
+        selectPrompt.delegate = self
+        selectPrompt.dataSource = self
+        
         data = ["gpt-4", "gpt-3.5-turbo","gpt-4-0314","gpt-3.5-turbo-0301"]
+               
         dataPrompt = []
         
 //        pickerViewContainer.layer.borderColor = UIColor.black.cgColor
 //        pickerViewContainer.layer.borderWidth = 2.0
 //        pickerViewContainer.layer.cornerRadius = 10.0
+        
+        
+//        guard let path = Bundle.main.path(forResource: "prompts", ofType: "csv") else {
+//            print("Couldn't find file 'mydata.csv'")
+//            return
+//        }
+//
+//        guard let data = try? String(contentsOfFile: path, encoding: .utf8) else {
+//            print("Couldn't read data from file")
+//            return
+//        }
+//
+//        let rows = data.components(separatedBy: "\n")
+//        for row in rows {
+//            let columns = row.components(separatedBy: ",")
+//            if columns.count > 1{
+//                prompts.append(columns[0])
+//                short.append(columns[1])
+//            }
+//        }
+//        prompts.removeFirst()
+//        short.removeFirst()
+//        prompts.insert("Basic helper", at: 0)
+//        short.insert("You're a helpful assistant", at: 0)
+//
+//        dataPrompt = prompts
+        
+        loadCSVFromURL()
+    }
+    
+    func loadCSVFromURL(){
+        guard let url = URL(string: "https://raw.githubusercontent.com/f/awesome-chatgpt-prompts/main/prompts.csv") else {
+            print("Invalid URL")
+            return
+        }
+
+        let session = URLSession.shared
+        let task = session.dataTask(with: url) { (data, response, error) in
+            if let error = error {
+                print("Error: \(error)")
+                return
+            }
+
+            guard let httpResponse = response as? HTTPURLResponse,
+                  httpResponse.statusCode == 200,
+                  let data = data else {
+                print("Invalid response")
+                return
+            }
+
+            if let csvString = String(data: data, encoding: .utf8) {
+                let rows = csvString.components(separatedBy: "\n")
+                for row in rows {
+                    let columns = row.components(separatedBy: ",")
+                    if columns.count > 1{
+                        self.prompts.append(columns[0])
+                        self.short.append(columns[1])
+                    }
+                }
+                self.prompts.removeFirst()
+                self.short.removeFirst()
+                self.prompts.insert("Basic helper", at: 0)
+                self.short.insert("You're a helpful assistant", at: 0)
+
+                self.dataPrompt = self.prompts
+
+            }
+        }
+
+        task.resume()
 
     }
+    
+    
+    func loadCSVToDict(file: String) -> [[String: String]]? {
+        guard let path = Bundle.main.path(forResource: file, ofType: "csv") else {
+            print("File not found")
+            return nil
+        }
+        
+        do {
+            let csvData = try String(contentsOfFile: path)
+            let csvLines = csvData.components(separatedBy: .newlines).filter { !$0.isEmpty }
+            guard let header = csvLines.first else { return nil }
+            
+            let keys = header.components(separatedBy: ",")
+            let data = csvLines.dropFirst().map { line -> [String: String] in
+                let values = line.components(separatedBy: ",")
+                return Dictionary(uniqueKeysWithValues: zip(keys, values))
+            }
+
+            return data
+        } catch {
+            print("Error reading file: \(error)")
+            return nil
+        }
+    }
+
        
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -75,14 +179,7 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
        
    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
        // handle the selection of an item in the dropdown list
-       
-       currentModel.model = self.data[row]
-       do {
-           try context.save()
-       } catch let error as NSError {
-           print("Could not save. \(error), \(error.userInfo)")
-       }
-       
+              
        if pickerView == selectModel {
            currentModel.model = self.data[row]
            do {
