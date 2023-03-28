@@ -18,10 +18,12 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
     @IBOutlet weak var selectPrompt: UIPickerView!
     
     var data = [String]()
-    var dataPrompt = [String]()
+    var dataPrompts = [String]()
+    var dataShorts = [String]()
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     var currentModel:CurrentModel!
+    var currentPrompt:CurrentPrompt!
     
     var prompts = [String]()
     var short = [String]()
@@ -34,8 +36,8 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
         
         data = ["gpt-4", "gpt-3.5-turbo","gpt-4-0314","gpt-3.5-turbo-0301"]
                
-        dataPrompt = []
-        
+        dataPrompts = []
+        dataShorts = []
 //        pickerViewContainer.layer.borderColor = UIColor.black.cgColor
 //        pickerViewContainer.layer.borderWidth = 2.0
 //        pickerViewContainer.layer.cornerRadius = 10.0
@@ -65,9 +67,11 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
 //        short.insert("You're a helpful assistant", at: 0)
 //
 //        dataPrompt = prompts
-        self.prompts.insert("Basic helper", at: 0)
-        self.short.insert("You're a helpful assistant", at: 0)
-        self.dataPrompt = self.prompts
+//        let p = fetchCurrentPrompt()
+//        self.prompts.insert(p.0, at: 0)
+//        self.short.insert(p.1, at: 0)
+//        self.dataPrompts = self.prompts
+//        self.dataShorts = self.short
 
         loadCSVFromURL()
     }
@@ -98,21 +102,19 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
                 for row in rows {
                     let columns = row.components(separatedBy: ",")
                     if columns.count > 1{
-                        self.prompts.append(columns[0])
-                        self.short.append(columns[1])
+                        self.short.append(columns[0])
+                        self.prompts.append(columns[1])
                     }
                 }
                 self.prompts.removeFirst()
                 self.short.removeFirst()
-                self.prompts.insert("Basic helper", at: 0)
-                self.short.insert("You're a helpful assistant", at: 0)
+                self.short.insert("Basic helper", at: 0)
+                self.prompts.insert("You're a helpful assistant", at: 0)
 
-                self.dataPrompt = self.prompts
-                DispatchQueue.main.async {
-                    self.selectPrompt.reloadAllComponents()
-                }
-                
+                self.dataPrompts = self.prompts
+                self.dataShorts = self.short
 
+                self.updatePickerViews()
             }
         }
 
@@ -149,13 +151,27 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-            // Access the variable from the sceneDelegate instance
-            for i in (0 ..< data.count) {
-                let _ = fetchCurrentModel()
-                if fetchCurrentModel() == data[i]{
-                    selectModel.selectRow(i, inComponent: 0, animated: true)
+        updatePickerViews()
+    }
+    
+    func updatePickerViews(){
+        for i in (0 ..< data.count) {
+            let _ = fetchCurrentModel()
+            if fetchCurrentModel() == data[i]{
+                DispatchQueue.main.async {
+                    self.selectModel.selectRow(i, inComponent: 0, animated: false)
+                }
+                
+            }
+        }
+        for i in (0 ..< short.count) {
+            let p = fetchCurrentPrompt()
+            if p.1 == short[i]{
+                DispatchQueue.main.async {
+                    self.selectPrompt.selectRow(i, inComponent: 0, animated: false)
                 }
             }
+        }
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -168,7 +184,7 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
             return data.count // number of items in the dropdown list
             
         } else if pickerView == selectPrompt{
-            return dataPrompt.count // number of items in the dropdown list
+            return dataPrompts.count // number of items in the dropdown list
         }
         
         return 0
@@ -178,7 +194,7 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
         if pickerView == selectModel {
             return data[row]
         } else if pickerView == selectPrompt{
-            return dataPrompt[row]
+            return dataShorts[row]
         }
         
         return  ""
@@ -195,7 +211,14 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
                print("Could not save. \(error), \(error.userInfo)")
            }
        } else if pickerView == selectPrompt{
-           //
+           currentPrompt.short = self.dataPrompts[row]
+           currentPrompt.prompt = self.dataShorts[row]
+           do {
+               try context.save()
+           } catch let error as NSError {
+               print("Could not save. \(error), \(error.userInfo)")
+           }
+           
        }
 
 
@@ -228,5 +251,34 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
         return "gpt-4"
 
     }
+    
+    func fetchCurrentPrompt() -> (String,String) {
+        
+        let fetchRequest: NSFetchRequest<CurrentPrompt> = CurrentPrompt.fetchRequest()
+        do {
+            let model = try context.fetch(fetchRequest)
+            if model.count == 0{
+                let currentPrompt = NSEntityDescription.entity(forEntityName: "CurrentPrompt", in: context)!
+                let c = CurrentPrompt(entity: currentPrompt, insertInto: context)
+                c.prompt = "Basic helper"
+                c.short = "You're a helpful assistant"
+                self.currentPrompt = c
+                do {
+                    try context.save()
+                } catch let error as NSError {
+                    print("Could not save. \(error), \(error.userInfo)")
+                }
+            } else {
+                currentPrompt = model[0]
+                return (model[0].short!,model[0].prompt!)
+            }
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+        }
+        
+        return ("Basic helper","You're a helpful assistant")
+
+    }
+
 
 }
