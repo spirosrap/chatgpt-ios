@@ -15,7 +15,16 @@
       "location" : "https://github.com/alfianlosari/ChatGPTSwift.git",
       "state" : {
         "branch" : "main",
-        "revision" : "c86cd2bd5fe907db9a1474b7973fa502c86f27fb"
+        "revision" : "e5e49957ddfea45e4a7f5c1d71bff5bbd9c92d5f"
+      }
+    },
+    {
+      "identity" : "gptencoder",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/alfianlosari/GPTEncoder.git",
+      "state" : {
+        "revision" : "a57eb55b8305ad6b4f564286b0fadff439805cf5",
+        "version" : "1.0.1"
       }
     },
     {

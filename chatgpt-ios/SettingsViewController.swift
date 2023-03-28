@@ -155,23 +155,28 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
     }
     
     func updatePickerViews(){
+        let fc = fetchCurrentModel()
+        let pc = fetchCurrentPrompt()
+        
         for i in (0 ..< data.count) {
-            let _ = fetchCurrentModel()
-            if fetchCurrentModel() == data[i]{
+            if fc == data[i]{
                 DispatchQueue.main.async {
                     self.selectModel.selectRow(i, inComponent: 0, animated: false)
                 }
-                
             }
         }
+        
         for i in (0 ..< short.count) {
-            let p = fetchCurrentPrompt()
-            if p.1 == short[i]{
+            if pc.1 == short[i]{
                 DispatchQueue.main.async {
-                    self.selectPrompt.selectRow(i, inComponent: 0, animated: false)
+                    self.selectPrompt.selectRow(i, inComponent: 0, animated: true)
+                    self.selectPrompt.reloadAllComponents()
                 }
             }
         }
+        
+
+        
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -220,7 +225,6 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
            }
            
        }
-
 
    }
     
