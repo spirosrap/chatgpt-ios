@@ -22,7 +22,7 @@ class AskViewController: UIViewController, UITextViewDelegate {
     var api:ChatGPTAPI!
     var isDataSaved = false
     var modelName = "gpt-4"
-    
+    var promptName = "You're a helpful assistant"
     var modelChangedHandler: ((String) -> Void)?
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 
@@ -75,6 +75,31 @@ class AskViewController: UIViewController, UITextViewDelegate {
         } catch let error as NSError {
             print("Could not fetch. \(error), \(error.userInfo)")
         }
+        
+        let fetchRequest2: NSFetchRequest<CurrentPrompt> = CurrentPrompt.fetchRequest()
+        do {
+            let model = try context.fetch(fetchRequest2)
+            if model.count == 0{
+                let currentPrompt = NSEntityDescription.entity(forEntityName: "CurrentPrompt", in: context)!
+                let c = CurrentPrompt(entity: currentPrompt, insertInto: context)
+                c.prompt = "You're a helpful assistant"
+                c.short = "Basic helper"
+                
+                self.promptName = c.prompt!
+                do {
+                    try context.save()
+                } catch let error as NSError {
+                    print("Could not save. \(error), \(error.userInfo)")
+                }
+            } else {
+                print(model[0].prompt!)
+                self.promptName = model[0].prompt!
+
+            }
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+        }
+
 
             
         if let apiKey = getAPIKey(from: "API_Key") {
@@ -121,7 +146,8 @@ class AskViewController: UIViewController, UITextViewDelegate {
         Task {
             do {
                 activityIndicator.startAnimating()
-                let stream = try await api.sendMessageStream(text: input.text, model: self.modelName)
+                let stream = try await api.sendMessageStream(text: input.text, model: self.modelName, systemText: promptName)
+                
                 var s = ""
                 activityIndicator.stopAnimating()
                 input.resignFirstResponder()
