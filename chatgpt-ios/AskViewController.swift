@@ -18,15 +18,15 @@ class AskViewController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     var currentAnswer = ""
     var currentQuestion = ""
-    
     var api:ChatGPTAPI!
     var isDataSaved = false
     var modelName = "gpt-4"
     var promptName = "You're a helpful assistant"
     var modelChangedHandler: ((String) -> Void)?
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-
+ 
     
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
