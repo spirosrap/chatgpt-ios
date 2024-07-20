@@ -34,7 +34,7 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
         selectPrompt.delegate = self
         selectPrompt.dataSource = self
         
-        data = ["gpt-4", "gpt-3.5-turbo","gpt-4-0314","gpt-3.5-turbo-0301"]
+        data = ["gpt-4o", "gpt-4o-mini","gpt-4-turbo","gpt-3.5-turbo"]
                
         dataPrompts = []
         dataShorts = []
@@ -237,7 +237,7 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
             if model.count == 0{
                 let currentModel = NSEntityDescription.entity(forEntityName: "CurrentModel", in: context)!
                 let c = CurrentModel(entity: currentModel, insertInto: context)
-                c.model = "gpt-4"
+                c.model = "gpt-4o"
                 self.currentModel = c
                 do {
                     try context.save()
@@ -252,7 +252,7 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
             print("Could not fetch. \(error), \(error.userInfo)")
         }
         
-        return "gpt-4"
+        return "gpt-4o"
 
     }
     

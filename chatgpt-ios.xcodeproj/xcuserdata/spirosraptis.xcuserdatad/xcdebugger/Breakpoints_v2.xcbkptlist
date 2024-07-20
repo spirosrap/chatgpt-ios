@@ -20,5 +20,95 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "92818591-9551-41FE-BFEA-24809022CACC"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "chatgpt-ios/AskViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "83"
+            endingLineNumber = "83"
+            landmarkName = "viewWillAppear(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "ED5862E8-2B26-49C5-9E4A-3000BCD51EDB"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "chatgpt-ios/AskViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "149"
+            endingLineNumber = "149"
+            landmarkName = "generate(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "ED5862E8-2B26-49C5-9E4A-3000BCD51EDB - c0a0f89aa8fab1a5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for closure #1 @Sendable () async -&gt; () in chatgpt_ios.AskViewController.generate(Any) -&gt; ()"
+                  moduleName = "chatgpt-ios"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/spirosraptis/Developer/chatgpt-ios/chatgpt-ios/AskViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "149"
+                  endingLineNumber = "149">
+               </Location>
+               <Location
+                  uuid = "ED5862E8-2B26-49C5-9E4A-3000BCD51EDB - 70b56859251aaf9c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(2) await resume partial function for closure #1 @Sendable () async -&gt; () in chatgpt_ios.AskViewController.generate(Any) -&gt; ()"
+                  moduleName = "chatgpt-ios"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/spirosraptis/Developer/chatgpt-ios/chatgpt-ios/AskViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "149"
+                  endingLineNumber = "149">
+               </Location>
+               <Location
+                  uuid = "ED5862E8-2B26-49C5-9E4A-3000BCD51EDB - b332c0dc7ca839b9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for closure #1 @Sendable () async -&gt; () in chatgpt_ios.AskViewController.generate(Any) -&gt; ()"
+                  moduleName = "chatgpt-ios"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/spirosraptis/Developer/chatgpt-ios/chatgpt-ios/AskViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "149"
+                  endingLineNumber = "149">
+               </Location>
+               <Location
+                  uuid = "ED5862E8-2B26-49C5-9E4A-3000BCD51EDB - bd7cb2a6e3c0db3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(6) suspend resume partial function for closure #1 @Sendable () async -&gt; () in chatgpt_ios.AskViewController.generate(Any) -&gt; ()"
+                  moduleName = "chatgpt-ios"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/spirosraptis/Developer/chatgpt-ios/chatgpt-ios/AskViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "149"
+                  endingLineNumber = "149">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>
