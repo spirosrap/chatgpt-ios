@@ -20,7 +20,7 @@ class AskViewController: UIViewController, UITextViewDelegate {
     var currentQuestion = ""
     var api:ChatGPTAPI!
     var isDataSaved = false
-    var modelName = "gpt-4"
+    var modelName = "gpt-4o"
     var promptName = "You're a helpful assistant"
     var modelChangedHandler: ((String) -> Void)?
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
@@ -60,8 +60,8 @@ class AskViewController: UIViewController, UITextViewDelegate {
             if model.count == 0{
                 let currentModel = NSEntityDescription.entity(forEntityName: "CurrentModel", in: context)!
                 let c = CurrentModel(entity: currentModel, insertInto: context)
-                c.model = "gpt-4"
-                self.modelName = "gpt-4"
+                c.model = "gpt-4o"
+                self.modelName = "gpt-4o"
                 do {
                     try context.save()
                 } catch let error as NSError {
